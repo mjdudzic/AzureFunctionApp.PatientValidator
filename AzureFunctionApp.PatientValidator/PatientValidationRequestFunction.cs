@@ -38,8 +38,8 @@ namespace AzureFunctionApp.PatientValidator
 
 			tableBinding.Add(new PatientValidationRequestFunctionLog
 			{
-				PartitionKey = Guid.NewGuid().ToString("N"),
-				RowKey = instanceId
+				PartitionKey = instanceId,
+				RowKey = Guid.NewGuid().ToString("N"),
 			});
 
 			return req.CreateResponse(HttpStatusCode.OK, data, "application/json");
