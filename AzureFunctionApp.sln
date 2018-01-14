@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionApp.PatientValidator", "AzureFunctionApp.PatientValidator\AzureFunctionApp.PatientValidator.csproj", "{0B98179C-8F6F-4C08-AAC9-6DBF8BC92B79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionApp.PatientValidator.Services", "AzureFunctionApp.PatientValidator.Services\AzureFunctionApp.PatientValidator.Services.csproj", "{01569FA1-5BA2-4039-9565-DD8C91D5EDCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionApp.PatientValidator.Services.Tests", "AzureFunctionApp.PatientValidator.Services.Tests\AzureFunctionApp.PatientValidator.Services.Tests.csproj", "{348F9644-1814-4916-89A8-1E61426A4574}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B98179C-8F6F-4C08-AAC9-6DBF8BC92B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B98179C-8F6F-4C08-AAC9-6DBF8BC92B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B98179C-8F6F-4C08-AAC9-6DBF8BC92B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B98179C-8F6F-4C08-AAC9-6DBF8BC92B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01569FA1-5BA2-4039-9565-DD8C91D5EDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01569FA1-5BA2-4039-9565-DD8C91D5EDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01569FA1-5BA2-4039-9565-DD8C91D5EDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01569FA1-5BA2-4039-9565-DD8C91D5EDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348F9644-1814-4916-89A8-1E61426A4574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348F9644-1814-4916-89A8-1E61426A4574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348F9644-1814-4916-89A8-1E61426A4574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348F9644-1814-4916-89A8-1E61426A4574}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B15C5ECD-3ECE-4C44-B64E-491776A9E7C7}
+	EndGlobalSection
+EndGlobal
