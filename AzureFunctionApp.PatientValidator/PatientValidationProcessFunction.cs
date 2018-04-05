@@ -30,7 +30,7 @@ namespace AzureFunctionApp.PatientValidator
 			var validationRequest = JsonConvert.DeserializeObject<SmsMessagePatientValidationRequest>(myQueueItem);
 			if (validationRequest == null)
 			{
-				log.Error($"Queue trigger function cannot process. Data cannot be deserialized: {myQueueItem}");
+				log.Error($"Data cannot be deserialized: {myQueueItem}");
 				return;
 			}
 
@@ -47,11 +47,18 @@ namespace AzureFunctionApp.PatientValidator
 
 			if (validationResult.Status != PatientApiValidationResultStatus.Verificated)
 			{
-				log.Error($"Queue trigger function cannot process. SMS message cannot be sent");
+				log.Error($"SMS message cannot be sent");
 				return;
 			}
 
-			await SendSms(validationRequest.Originator);
+			if (validationResult.Response == null)
+			{
+				log.Error($"Lack of validation data");
+				return;
+			}
+
+			var smsgatewayResponse = await SendSms(validationRequest.Originator, validationResult.Response);
+			log.Info(smsgatewayResponse);
 		}
 
 		public static async Task<PatientApiValidationResult> ValidatePatient(string patientNumber)
@@ -84,7 +91,7 @@ namespace AzureFunctionApp.PatientValidator
 			});
 		}
 
-		private static async Task SendSms(string recipientNumber)
+		private static async Task<string> SendSms(string recipientNumber, PatientApiValidationResponse validationResult)
 		{
 			var smsApiService = new SmsApiService(new SmsApiConfiguration
 			{
@@ -95,14 +102,14 @@ namespace AzureFunctionApp.PatientValidator
 
 			if (!Int64.TryParse(recipientNumber, out long number))
 			{
-				return;
+				return null;
 			}
 
-			await smsApiService.SendMessage(new SmsMessagePatientValidationResponse
+			return await smsApiService.SendMessage(new SmsMessagePatientValidationResponse
 			{
 				Originator = Environment.GetEnvironmentVariable("SmsApiOriginator"),
 				Recipients = new[] { number },
-				Body = $"todo"
+				Body = $"{validationResult.MemberName}|{validationResult.MemberNumber}|{validationResult.Gender}|{validationResult.EligibilityEndDateValue}|{validationResult.EligibilityEndDateValue}"
 			}, number);
 		}
 	}

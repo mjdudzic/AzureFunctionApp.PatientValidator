@@ -27,7 +27,7 @@ namespace AzureFunctionApp.PatientValidator.Services
 
 			var result = await _apiService.Verify(token.AccessToken, request);
 			
-			if (result.Responses == null || !result.Responses.Any())
+			if (result.Response == null)
 			{
 				return new PatientValidationRequestResult
 				{
@@ -35,13 +35,13 @@ namespace AzureFunctionApp.PatientValidator.Services
 				};
 			}
 
-			var response = result.Responses.First();
+			var response = result.Response;
 
 			return new PatientValidationRequestResult
 			{
-				MemberName = response.MemberName,
-				MemberNumber = response.MemberNumber,
-				Status = response.Status,
+				MemberName = result.Response.MemberName,
+				MemberNumber = result.Response.MemberNumber,
+				Status = result.Response.Status,
 				ErrorMessage = result.Error == null || string.IsNullOrWhiteSpace(result.Error.Message)
 					? null
 					: result.Error.Message

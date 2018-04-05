@@ -10,7 +10,7 @@
 			},
 			"responseOverrides": {
 				"response.statusCode": "200",
-				"response.body": "{\r\n    \"Status\": \"SMS Received\"\r\n}"
+				"response.body": "{\"Status\": \"SMS Received\"}"
 			}
 		},
 		"patientvalidationrequests": {
@@ -20,18 +20,18 @@
 					"POST"
 				]
 			},
-			"responseOverrides": {
-				"response.statusCode": "200",
-				"response.body": "[{\r\n    \"MemberName\": \"Jan Kowalski\",\r\n    \"MemberNumber\": \"00000000\",\r\n    \"DateOfBirthValue\": \"1980-01-01\",\r\n    \"EligibilityStartDateValue\": \"2016-01-01\",\r\n    \"EligibilityEndDateValue\": \"2019-01-01\",\r\n    \"Status\": \"Insured\",\r\n    \"Gender\": \"Male\"\r\n}]",
-				"response.headers.Content-Type": "application/json; charset=utf-8"
-			}
+					"responseOverrides": {
+						"response.statusCode": "200",
+						"response.body": "{\"MemberName\": \"Jan Kowalski\", \"MemberNumber\": \"00000000\", \"DateOfBirthValue\": \"1980-01-01\", \"EligibilityStartDateValue\": \"2016-01-01\",     \"EligibilityEndDateValue\": \"2019-01-01\", \"Status\": \"Insured\", \"Gender\": \"Male\"}",
+						"response.headers.Content-Type": "application/json; charset=utf-8"
+					}
 		},
 		"patientvalidationtokens": {
 			"matchCondition": {
 				"route": "/mock/patientvalidation/tokens/%PROXY_PATIENT_API%"
 			},
 			"responseOverrides": {
-				"response.body": "{\r\n    \"access_token\": \"AAnTEOiD6krOrkiZOssQImfV6PohOnSk0kiDN_lhGujTCF-WfROrIKXtuWgxO6AzYh3lJBDvGabZb34kx4AxQshJ4NKtQeij0yVcKNcWu1hHMgK8XX6aT9gTHpGNen_QxNptCRzkd2dPrJRIAK7su9oexH4yNQzQE8uoxB83QVH2AEc5oNpZ1sdHoXRU7wEmZAKw1H6zucxGYBclH_-lsiQRyUvg6XsNAkpnPg5dk5KqR17YTOD1H3FZ-RKIgb4MSIFlLfYOqU00nXfeuFuXQg\",\r\n    \"token_type\": \"bearer\",\r\n    \"expires_in\": 86399\r\n}",
+				"response.body": "{\"access_token\": \"AAnTEOiD6krOrkiZOssQImfV6PohOnSk0kiDN_lhGujTCF-WfROrIKXtuWgxO6AzYh3lJBDvGabZb34kx4AxQshJ4NKtQeij0yVcKNcWu1hHMgK8XX6aT9gTHpGNen_QxNptCRzkd2dPrJRIAK7su9oexH4yNQzQE8uoxB83QVH2AEc5oNpZ1sdHoXRU7wEmZAKw1H6zucxGYBclH_-lsiQRyUvg6XsNAkpnPg5dk5KqR17YTOD1H3FZ-RKIgb4MSIFlLfYOqU00nXfeuFuXQg\", \"token_type\": \"bearer\", \"expires_in\": 86399\r\n}",
 				"response.headers.Content-Type": "application/json;charset=utf-8"
 			}
 		}
