@@ -88,7 +88,7 @@ namespace AzureFunctionApp.PatientValidator.Services.ExternalApiServices
 				return new PatientApiValidationResult
 				{
 					Status = PatientApiValidationResultStatus.Verificated,
-					Responses = JsonConvert.DeserializeObject<PatientApiValidationResponse[]>(result)
+					Response = JsonConvert.DeserializeObject<PatientApiValidationResponse>(result)
 				};
 			}
 			catch

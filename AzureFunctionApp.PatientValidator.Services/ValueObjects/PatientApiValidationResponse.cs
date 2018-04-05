@@ -19,8 +19,7 @@ namespace AzureFunctionApp.PatientValidator.Services.ValueObjects
 		{
 			get
 			{
-				DateTime date;
-				if (DateTime.TryParse(DateOfBirthValue, out date))
+				if (DateTime.TryParse(DateOfBirthValue, out DateTime date))
 					return date;
 
 				return null;
@@ -35,8 +34,7 @@ namespace AzureFunctionApp.PatientValidator.Services.ValueObjects
 		{
 			get
 			{
-				DateTime date;
-				if (DateTime.TryParse(EligibilityStartDateValue, out date))
+				if (DateTime.TryParse(EligibilityStartDateValue, out DateTime date))
 					return date;
 
 				return null;
@@ -51,8 +49,7 @@ namespace AzureFunctionApp.PatientValidator.Services.ValueObjects
 		{
 			get
 			{
-				DateTime date;
-				if (DateTime.TryParse(EligibilityEndDateValue, out date))
+				if (DateTime.TryParse(EligibilityEndDateValue, out DateTime date))
 					return date;
 
 				return null;
