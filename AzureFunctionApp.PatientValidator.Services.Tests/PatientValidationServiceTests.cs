@@ -1,17 +1,16 @@
-﻿using AzureFunctionApp.PatientValidator.Services;
+﻿using System;
+using System.Threading.Tasks;
 using AzureFunctionApp.PatientValidator.Services.Interfaces;
 using AzureFunctionApp.PatientValidator.Services.ValueObjects;
 using FluentAssertions;
 using NSubstitute;
-using System;
-using System.Threading.Tasks;
 using Xunit;
 
-namespace AzureFunctionApp.PatientValidatror.Services.Tests
+namespace AzureFunctionApp.PatientValidator.Services.Tests
 {
 	public class PatientValidationServiceTests
 	{
-		IPatientApiService _patientApiService;
+		readonly IPatientApiService _patientApiService;
 
 		public PatientValidationServiceTests()
 		{
@@ -56,7 +55,7 @@ namespace AzureFunctionApp.PatientValidatror.Services.Tests
 				.Verify(Arg.Any<string>(), Arg.Any<PatientValidationRequest>())
 				.Returns(Task.FromResult(new PatientApiValidationResult
 				{
-					Responses = new PatientApiValidationResponse[0]
+					Response = null
 				}));
 
 			var service = new PatientValidationService(_patientApiService);
@@ -93,13 +92,10 @@ namespace AzureFunctionApp.PatientValidatror.Services.Tests
 				.Returns(Task.FromResult(new PatientApiValidationResult
 				{
 					Status = PatientApiValidationResultStatus.Verificated,
-					Responses = new PatientApiValidationResponse[]
+					Response = new PatientApiValidationResponse
 					{
-						new PatientApiValidationResponse
-						{
-							MemberName = memberName,
-							MemberNumber = memberNumber
-						}
+						MemberName = memberName,
+						MemberNumber = memberNumber
 					}
 				}));
 
