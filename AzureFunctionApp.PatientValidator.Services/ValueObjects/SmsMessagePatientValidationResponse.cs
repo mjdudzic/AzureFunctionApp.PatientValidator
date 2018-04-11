@@ -4,15 +4,15 @@ namespace AzureFunctionApp.PatientValidator.Services.ValueObjects
 {
 	public class SmsMessagePatientValidationResponse
 	{
-		public const string TYPE_SMS = "sms";
-		public const string ENCODING_PLAIN = "plain";
-		public const int CLASS_1 = 1;
+		public const string TypeSms = "sms";
+		public const string EncodingPlain = "plain";
+		public const int Class1 = 1;
 
 		public SmsMessagePatientValidationResponse()
 		{
-			Type = TYPE_SMS;
-			Encoding = ENCODING_PLAIN;
-			Class = CLASS_1;
+			Type = TypeSms;
+			Encoding = EncodingPlain;
+			Class = Class1;
 		}
 
 		[JsonProperty("type")]

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AzureFunctionApp.PatientValidator.ValueObjects
+﻿namespace AzureFunctionApp.PatientValidator.ValueObjects
 {
 	public class PatientValidationRequestFunctionLog
 	{

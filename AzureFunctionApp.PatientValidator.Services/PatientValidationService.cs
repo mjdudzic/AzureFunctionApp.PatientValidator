@@ -1,6 +1,5 @@
 ﻿using AzureFunctionApp.PatientValidator.Services.Interfaces;
 using AzureFunctionApp.PatientValidator.Services.ValueObjects;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AzureFunctionApp.PatientValidator.Services
@@ -34,8 +33,6 @@ namespace AzureFunctionApp.PatientValidator.Services
 					ErrorMessage = "No response"
 				};
 			}
-
-			var response = result.Response;
 
 			return new PatientValidationRequestResult
 			{
