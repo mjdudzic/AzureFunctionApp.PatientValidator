@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using AzureFunctionApp.PatientValidator.Services.Interfaces;
 using AzureFunctionApp.PatientValidator.Services.ValueObjects;
@@ -31,7 +32,7 @@ namespace AzureFunctionApp.PatientValidator.Services.Tests
 			var result = service.ValidatePatient(new PatientValidationRequest
 			{
 				MemberNumber = Guid.NewGuid().ToString("N"),
-				RefDate = DateTime.Now.Date.ToString()
+				RefDate = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture)
 			}).Result;
 
 			//Assert
@@ -64,7 +65,7 @@ namespace AzureFunctionApp.PatientValidator.Services.Tests
 			var result = service.ValidatePatient(new PatientValidationRequest
 			{
 				MemberNumber = Guid.NewGuid().ToString("N"),
-				RefDate = DateTime.Now.Date.ToString()
+				RefDate = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture)
 			}).Result;
 
 			//Assert
@@ -105,7 +106,7 @@ namespace AzureFunctionApp.PatientValidator.Services.Tests
 			var result = service.ValidatePatient(new PatientValidationRequest
 			{
 				MemberNumber = Guid.NewGuid().ToString("N"),
-				RefDate = DateTime.Now.Date.ToString()
+				RefDate = DateTime.Now.Date.ToString(CultureInfo.InvariantCulture)
 			}).Result;
 
 			//Assert
