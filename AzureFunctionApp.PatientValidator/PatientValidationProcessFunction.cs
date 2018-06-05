@@ -100,7 +100,7 @@ namespace AzureFunctionApp.PatientValidator
 				SmsApiUrl = Environment.GetEnvironmentVariable("SmsApiUrl")
 			});
 
-			if (!Int64.TryParse(recipientNumber, out long number))
+			if (!long.TryParse(recipientNumber, out var number))
 			{
 				return null;
 			}
